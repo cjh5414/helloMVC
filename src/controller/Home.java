@@ -13,7 +13,6 @@ import java.io.IOException;
  */
 @WebServlet(name = "Home", urlPatterns = "/home")
 public class Home extends HttpServlet {
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
 
