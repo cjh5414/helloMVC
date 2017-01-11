@@ -11,6 +11,7 @@
     <title>Error</title>
 </head>
 <body>
-error
+    error
+    <p> <a href="index.jsp"> try again </a> </p>
 </body>
 </html>

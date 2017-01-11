@@ -1,5 +1,9 @@
 package controller;
 
+import model.Customer;
+import service.CustomerService;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,5 +20,19 @@ public class DoLogin extends HttpServlet {
         String customerId = request.getParameter("customerId");
 
         // Perform business logic. Return a bean as a result.
+
+        CustomerService service = new CustomerService();
+        Customer customer = service.findCustomer(customerId);
+        request.setAttribute("customer", customer);
+
+        String page = null;
+
+        if(customer == null)
+            page = "/view/error.jsp";
+        else
+            page = "/view/success.jsp";
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher(page);
+        dispatcher.forward(request, response);
     }
 }
