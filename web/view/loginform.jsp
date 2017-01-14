@@ -12,8 +12,8 @@
 </head>
 <body>
     <form action="doLogin" method="get">
-        Customer ID(id001, id002, id003, id004, id005):
-        <input type="text" name="customerId" /> <br/>
+        <label for="customerId"> Customer ID(id001, id002, id003, id004, id005): </label>
+        <input id="customerId" type="text" name="customerId" /> <br/>
         <input type="submit" value="press" />
     </form>
 </body>

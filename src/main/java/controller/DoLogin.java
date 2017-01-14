@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by jihun on 2017. 1. 9..
@@ -25,7 +27,15 @@ public class DoLogin extends HttpServlet {
         Customer customer = service.findCustomer(customerId);
         request.setAttribute("customer", customer);
 
-        String page = null;
+        // We can iterate over lists using forEach in JSTL
+
+        List<Customer> customers = new ArrayList<Customer>();
+        customers.add(new Customer("id006", "Kim", "Kim@hansung.ac.kr"));
+        customers.add(new Customer("id007", "Lee", "Lee@hansung.ac.kr"));
+        customers.add(new Customer("id008", "Park", "Park@hansung.ac.kr"));
+        request.setAttribute("customerList", customers);
+
+        String page;
 
         if(customer == null)
             page = "/view/error.jsp";
